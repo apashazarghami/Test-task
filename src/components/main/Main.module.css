@@ -1,0 +1,37 @@
+.container {
+    margin: 5px 10px;
+}
+
+.article {
+    border-radius: 10px;
+    background: #ffffff;
+    padding: 8px 60px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button {
+    background: #235b85;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: all 0.3s linear;
+}
+
+.button:hover {
+    background: #10446b;
+}
+
+.content {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.main {
+    border-radius: 10px;
+    height: calc(100vh - 127px);
+    background: #000;
+    background: #ffffff;
+}

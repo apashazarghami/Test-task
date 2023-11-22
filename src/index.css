@@ -6,6 +6,10 @@
   line-height: 1.5;
 }
 
+:root {
+  background: #f7f7f7;
+}
+
 button {
   all: unset;
   cursor: pointer;
