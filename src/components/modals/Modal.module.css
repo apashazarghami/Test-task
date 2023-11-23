@@ -2,6 +2,10 @@
     background: #ffffff;
     border-radius: 10px;
     width: 70%;
-    margin: 0 auto;
+    height: 761px;
     overflow: hidden;
+    position: absolute;
+    top: 65px;
+    right: 15%;
+    display: none;
 }

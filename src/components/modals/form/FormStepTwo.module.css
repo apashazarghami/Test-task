@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+.text {
+    color: #909193;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.charts {
+    width: 300px;
+    height: 300px;
+    border: 2px solid #e8e8e8;
+    border-radius: 5px;
+}
+
+.doubleArrow {
+    transform: rotate(180deg);
+    font-size: 3rem;
+    color: #b0b0b0;
+}
+
+.optionsContainer {
+    padding: 10px 0;
+    border-bottom: 2px dotted #e8e8e8;
+    margin: 0 20px;
+    color: #979a9c;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+}
+
+.button {
+    background: #235b85;
+    border-radius: 5px;
+    padding: 7px 30px;
+    transition: all 0.3s linear;
+    color: #c8d7e3;
+    font-weight: 500;
+}
+
+.button:hover {
+    background: #10446b;
+}

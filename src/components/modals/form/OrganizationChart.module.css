@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    padding: 5px;
+}
+
+.diagram {
+    color: #7d98c7;
+    font-size: 1.5rem;
+}
+
+.nodeText {
+    margin-right: 5px;
+    color: #afafaf;
+}
