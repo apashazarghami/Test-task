@@ -14,3 +14,7 @@ button {
   all: unset;
   cursor: pointer;
 }
+
+input {
+  all: unset;
+}

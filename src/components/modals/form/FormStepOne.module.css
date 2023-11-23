@@ -1,0 +1,67 @@
+.container {
+    padding: 20px 40px;
+}
+
+.specificationsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.labelContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.icon {
+    font-size: 0.7rem;
+    margin-right: 5px;
+    color: #ff2f4e;
+}
+
+.label {
+    color: #0a1219;
+    font-weight: 900;
+}
+
+.input {
+    width: 400px;
+}
+
+.input, .textarea {
+    padding: 8px 10px;
+    border: 1px solid #b7b9bb;
+    border-radius: 5px;
+    color: #9c9e9e;
+}
+
+.textareaContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.textarea {
+    outline: none;
+    height: 80px;
+    margin: 5px 0 70px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button {
+    background: #235b85;
+    border-radius: 5px;
+    padding: 7px 30px;
+    transition: all 0.3s linear;
+    color: #c8d7e3;
+    font-weight: 500;
+}
+
+.button:hover {
+    background: #10446b;
+}

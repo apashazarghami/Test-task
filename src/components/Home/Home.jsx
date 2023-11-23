@@ -2,6 +2,7 @@ import styles from './Home.module.css';
 import Header from "../header/Header";
 import Main from "../main/Main";
 import Sidebar from '../sidebar/Sidebar';
+import Modal from '../modals/Modal';
 
 const Home = () => {
     return(
@@ -11,6 +12,7 @@ const Home = () => {
                 <Sidebar />
                 <Main />
             </div>
+            <Modal />
         </div>
     )
 }

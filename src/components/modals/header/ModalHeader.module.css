@@ -1,0 +1,30 @@
+.container {
+    background: #fbfbfb;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.closeIcon {
+    background: #ffffff;
+    color: #c2c3c6;
+    font-size: 30px;
+}
+
+.text {
+    color: #b3b3b3;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.codeNumber {
+    background: #d9d9d9;
+    color: #454850;
+    border-radius: 5px;
+    padding: 5px 20px;
+    font-weight: bold;
+}
+
+.content, .container {
+    display: flex;
+    align-items: center;
+}
