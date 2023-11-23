@@ -1,0 +1,29 @@
+.container {
+    margin-top: 10px;
+    margin-right: 35px;
+}
+
+.dottedLine {
+    font-size: 1.1rem;
+    color: #979a9c;
+}
+
+.ITMargin {
+    margin-top: 10px;
+}
+
+.diagram {
+    color: #7d98c7;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.ITDepartmentContainer {
+    display: flex;
+}
+
+.nodeText {
+    margin-right: 5px;
+    color: #afafaf;
+    cursor: pointer;
+}

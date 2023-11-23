@@ -1,16 +1,31 @@
 import styles from './FormStepTwo.module.css';
 import { MdOutlineDoubleArrow } from "react-icons/md";
-import OrganizationChart from './OrganizationChart';
+import OrganizationChart from '../charts/OrganizationChart';
 import { useProcess } from '../../../context/ProcessProvider';
+import axios from 'axios';
+import toast from 'react-hot-toast'
 
 const FormStepTwo = () => {
     const { state, dispatch } = useProcess();
-    console.log(state)
-    const options = [{
-        id: 1,
-        key: 'A.01.02',
-        desc: 'واحد 1'
-    }]
+    const { options, processDescription, processIdentifier, processOwner, processTitle, processViewer} = state
+    const sendInformation = () => {
+        const data = {
+            options,
+            processDescription,
+            processIdentifier,
+            processOwner,
+            processTitle,
+            processViewer,
+            createdAt: new Date().toISOString() 
+        }
+        const notify = (content) => toast.success(content)
+        const sendData = async() => {
+            notify(`اطلاعات فرایند ${processTitle} با شناسه ${processIdentifier} در تاریخ ${new Date(data.createdAt).toLocaleString('fa')} با موفقیت ثبت شد`)
+            dispatch({ type: 'GO_TO_HOME' })
+            await axios.post('', data);
+        }
+        sendData()
+    }
     return(
         <>
             <div className={styles.container}>
@@ -27,8 +42,8 @@ const FormStepTwo = () => {
                         {
                             options.map(item => {
                                 return (
-                                    <div className={styles.optionsContainer} key={item.id}>
-                                        {`${item.key}: ${item.desc}`}
+                                    <div className={styles.optionsContainer} key={item.id} onClick={() => dispatch({ type: "REMOVE_OPTION", payload: item.id })}>
+                                        {`${item.id}: واحد ${item.department}`}
                                     </div>
                                 )
                             })
@@ -38,7 +53,7 @@ const FormStepTwo = () => {
             </div>
             <div className={styles.buttonContainer}>
                 <button className={styles.button} onClick={() => dispatch({ type: 'GO_TO_STEP_ONE' })}>قبلی</button>
-                <button className={styles.button}>ثبت و ادامه</button>
+                <button className={styles.button} onClick={sendInformation}>ثبت و ادامه</button>
             </div>
         </>
     )

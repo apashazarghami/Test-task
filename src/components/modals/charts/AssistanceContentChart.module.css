@@ -1,0 +1,26 @@
+.dottedLine {
+    font-size: 1.1rem;
+    color: #979a9c;
+}
+
+.diagram {
+    color: #7d98c7;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.nodeText {
+    margin-right: 5px;
+    color: #afafaf;
+    cursor: pointer;
+}
+
+.contentContainer {
+    display: flex;
+    margin-top: 11px;
+    position: relative;
+}
+
+.displayIT {
+    margin-top: 15px;
+}

@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.dottedLine {
+    transform: rotate(90deg);
+    font-size: 1.1rem;
+    color: #979a9c;
+}
+
+.plus {
+    color: #7d98c7;
+    font-size: 1.1rem;
+}

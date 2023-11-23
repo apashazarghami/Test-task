@@ -6,7 +6,8 @@ const INITIAL_STATE = {
     processIdentifier: '',
     processOwner: [],
     processViewer: [],
-    processDescription: ''
+    processDescription: '',
+    options: []
 }
 
 const processReducer = (state, { type, payload }) => {
@@ -32,6 +33,18 @@ const processReducer = (state, { type, payload }) => {
                 ...state,
                 modalStatus: 'hidden'
             }
+        case "ADD_OPTION" :
+            const repeatedOption = state.options.filter(item => item.id === payload.id)
+            return {
+                ...state,
+                options: repeatedOption.length ? state.options : [...state.options, payload]
+            }
+        case "REMOVE_OPTION" :
+            return {
+                ...state,
+                options: state.options.filter(item => item.id !== payload)
+            }
+        default : return state
     }
 }
 

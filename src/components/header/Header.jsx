@@ -14,11 +14,11 @@ const Header = () => {
                 </div>
                 <div className={styles.navbar}>
                     <div className={styles.mail}>
-                        <span className={styles.mailMessages}>2</span>
+                        <span className={styles.mailMessages}>۲</span>
                         <GoMail className={styles.icons} />
                     </div>
                     <div className={styles.bell}>
-                        <span className={styles.bellMessages}>2</span>
+                        <span className={styles.bellMessages}>۲</span>
                         <FaRegBell className={styles.icons} />
                     </div>
                     <img style={{width: '50px', height: '50px' }} src={profileImage} alt="عکس مربوط به پروفایل هر فرد می باشد" />
