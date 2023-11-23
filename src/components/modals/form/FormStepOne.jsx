@@ -2,17 +2,25 @@ import { useRef, useState } from 'react';
 import styles from './FormStepOne.module.css';
 import { TbTopologyStar3 } from "react-icons/tb";
 import Select from 'react-select';
+import authentication from '../../utilities/authentication';
+import { useProcess } from '../../../context/ProcessProvider';
 
 const FormStepOne = () => {
-    const [selectedOwner, setSelectedOwner] = useState(null);
-    const [selectedViewer, setSelectedViewer] = useState(null);
+    const [selectedOwner, setSelectedOwner] = useState([]);
+    const [selectedViewer, setSelectedViewer] = useState([]);
+    const [information, setInformation] = useState({
+        processTitle: '',
+        processIdentifier: '',
+        processDescription: ''
+    })
+    const { processTitle, processIdentifier, processDescription } = information
     const refOwner = useRef()
     const refViewer = useRef()
     const options = [
         { value: '1', label: 'فرهاد غفاری' },
         { value: '2', label: 'محمد امینی' },
     ]
-
+    const { dispatch } = useProcess();
     const changeOwnerHandler = selected => setSelectedOwner(selected)
     const changeViewerHandler = selected => setSelectedViewer(selected)
     const DropdownIndicator = () => null;
@@ -53,22 +61,28 @@ const FormStepOne = () => {
             color: '#9c9e9e',
         }),
       };
+
+    const submitHandler = event => {
+        event.preventDefault();
+        authentication({ information, processOwner: selectedOwner, processViewer: selectedViewer, type: 'GO_TO_STEP_TWO', dispatch });
+    }
+
     return(
-        <form className={styles.container}>
+        <form className={styles.container} onSubmit={submitHandler}>
             <div className={styles.specificationsContainer}>
                 <div>
                     <div className={styles.labelContainer}>
                         <label className={styles.label} htmlFor='title'>عنوان فرایند</label>
                         <TbTopologyStar3 className={styles.icon} />
                     </div>
-                    <input className={styles.input} id='title' />
+                    <input value={processTitle} onChange={e => setInformation(prev => ({...prev, processTitle: e.target.value}))} className={styles.input} id='title' />
                 </div>
                 <div>
                     <div className={styles.labelContainer}>
                         <label className={styles.label} htmlFor='identifier'>شناسه فرایند</label>
                         <TbTopologyStar3 className={styles.icon} />
                     </div>
-                    <input className={styles.input} id='identifier' />
+                    <input value={processIdentifier} onChange={e => setInformation(prev => ({...prev, processIdentifier: e.target.value}))} className={styles.input} id='identifier' />
                 </div>
                 <div>
                     <div className={styles.labelContainer}>
@@ -87,10 +101,10 @@ const FormStepOne = () => {
             </div>
             <div className={styles.textareaContainer}>
                 <label className={styles.label} htmlFor='description'>توضیحات فرایند</label>
-                <textarea className={styles.textarea} id='description'></textarea>
+                <textarea value={processDescription} className={styles.textarea} onChange={e => setInformation(prev => ({...prev, processDescription: e.target.value}))} id='description'></textarea>
             </div>
             <div className={styles.buttonContainer}>
-                <button className={styles.button}>ثبت و ادامه</button>
+                <button className={styles.button} type='submit'>ثبت و ادامه</button>
             </div>
         </form>
     )

@@ -5,10 +5,11 @@ const INITIAL_STATE = {
     processTitle: '',
     processIdentifier: '',
     processOwner: [],
-    processViewer: []
+    processViewer: [],
+    processDescription: ''
 }
 
-const processReducer = (state, { type }) => {
+const processReducer = (state, { type, payload }) => {
     switch(type) {
         case 'GO_TO_STEP_ONE' :
             return {
@@ -16,9 +17,20 @@ const processReducer = (state, { type }) => {
                 modalStatus: 'stepOne'
             }
         case 'GO_TO_STEP_TWO' :
+            const { processDescription, processIdentifier, processOwner, processTitle, processViewer } = payload
             return {
                 ...state,
-                modalStatus: 'stepTwo'
+                modalStatus: 'stepTwo',
+                processTitle,
+                processIdentifier,
+                processOwner,
+                processViewer,
+                processDescription
+            }
+        case 'GO_TO_HOME' :
+            return {
+                ...state,
+                modalStatus: 'hidden'
             }
     }
 }

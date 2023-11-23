@@ -1,8 +1,11 @@
 import styles from './FormStepTwo.module.css';
 import { MdOutlineDoubleArrow } from "react-icons/md";
 import OrganizationChart from './OrganizationChart';
+import { useProcess } from '../../../context/ProcessProvider';
 
 const FormStepTwo = () => {
+    const { state, dispatch } = useProcess();
+    console.log(state)
     const options = [{
         id: 1,
         key: 'A.01.02',
@@ -34,7 +37,7 @@ const FormStepTwo = () => {
                 </div>
             </div>
             <div className={styles.buttonContainer}>
-                <button className={styles.button}>قبلی</button>
+                <button className={styles.button} onClick={() => dispatch({ type: 'GO_TO_STEP_ONE' })}>قبلی</button>
                 <button className={styles.button}>ثبت و ادامه</button>
             </div>
         </>
