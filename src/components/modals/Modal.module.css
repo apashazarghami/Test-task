@@ -7,5 +7,12 @@
     position: absolute;
     top: 65px;
     right: 15%;
+}
+
+.displayModal {
+    display: block;
+}
+
+.hiddenModal {
     display: none;
 }

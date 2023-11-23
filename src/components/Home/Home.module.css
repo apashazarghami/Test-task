@@ -1,3 +1,7 @@
 .layout {
     display: flex;
 }
+
+.lowOpacity {
+    opacity: 0.5;
+}
