@@ -7,12 +7,7 @@ import AssistanceContentChart from './AssistanceContentChart';
 const OrganizationChart = () => {
     const [organizationStatus, setOrganizationStatus] = useState({
         isOrganization: false,
-        isIT: false,
-        isEducation: false,
-        isResearch: false,
-        isSoftWare: false,
-        isInfrastructure: false,
-        isSecurity: false
+        isIT: false
     })
     const { isOrganization } = organizationStatus
     return(

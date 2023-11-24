@@ -2,8 +2,8 @@ import { useRef, useState } from 'react';
 import styles from './FormStepOne.module.css';
 import { TbTopologyStar3 } from "react-icons/tb";
 import Select from 'react-select';
-import authentication from '../../utilities/authentication';
-import { useProcess } from '../../../context/ProcessProvider';
+import authentication from '../../../utilities/authentication';
+import { useDispatch } from 'react-redux';
 
 const FormStepOne = () => {
     const [selectedOwner, setSelectedOwner] = useState([]);
@@ -20,7 +20,7 @@ const FormStepOne = () => {
         { value: '1', label: 'فرهاد غفاری' },
         { value: '2', label: 'محمد امینی' },
     ]
-    const { dispatch } = useProcess();
+    const dispatch = useDispatch();
     const changeOwnerHandler = selected => setSelectedOwner(selected)
     const changeViewerHandler = selected => setSelectedViewer(selected)
     const DropdownIndicator = () => null;
@@ -64,7 +64,7 @@ const FormStepOne = () => {
 
     const submitHandler = event => {
         event.preventDefault();
-        authentication({ information, processOwner: selectedOwner, processViewer: selectedViewer, type: 'GO_TO_STEP_TWO', dispatch });
+        authentication({ information, processOwner: selectedOwner, processViewer: selectedViewer, dispatch });
     }
 
     return(

@@ -1,13 +1,14 @@
 import styles from './FormStepTwo.module.css';
 import { MdOutlineDoubleArrow } from "react-icons/md";
 import OrganizationChart from '../charts/OrganizationChart';
-import { useProcess } from '../../../context/ProcessProvider';
 import axios from 'axios';
-import toast from 'react-hot-toast'
+import { useDispatch, useSelector } from 'react-redux';
+import { goToHome, removeOption } from '../../../redux/process/processActions';
+import { notify } from '../../../utilities/authentication';
 
 const FormStepTwo = () => {
-    const { state, dispatch } = useProcess();
-    const { options, processDescription, processIdentifier, processOwner, processTitle, processViewer} = state
+    const dispatch = useDispatch();
+    const { options, processDescription, processIdentifier, processOwner, processTitle, processViewer } = useSelector(state => state.process)
     const sendInformation = () => {
         const data = {
             options,
@@ -18,10 +19,10 @@ const FormStepTwo = () => {
             processViewer,
             createdAt: new Date().toISOString() 
         }
-        const notify = (content) => toast.success(content)
+        
         const sendData = async() => {
-            notify(`اطلاعات فرایند ${processTitle} با شناسه ${processIdentifier} در تاریخ ${new Date(data.createdAt).toLocaleString('fa')} با موفقیت ثبت شد`)
-            dispatch({ type: 'GO_TO_HOME' })
+            notify(`اطلاعات فرایند ${processTitle} با شناسه ${processIdentifier} در تاریخ ${new Date(data.createdAt).toLocaleString('fa')} با موفقیت ثبت شد`, 'success')
+            dispatch(goToHome())
             await axios.post('', data);
         }
         sendData()
@@ -42,7 +43,7 @@ const FormStepTwo = () => {
                         {
                             options.map(item => {
                                 return (
-                                    <div className={styles.optionsContainer} key={item.id} onClick={() => dispatch({ type: "REMOVE_OPTION", payload: item.id })}>
+                                    <div className={styles.optionsContainer} key={item.id} onClick={() => dispatch(removeOption(item.id))}>
                                         {`${item.id}: واحد ${item.department}`}
                                     </div>
                                 )

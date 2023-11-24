@@ -1,8 +1,8 @@
-import { useProcess } from '../../../context/ProcessProvider';
+import { useSelector } from 'react-redux';
 import styles from './StepsDiagram.module.css';
 
 const StepDiagram = () => {
-    const { state: { modalStatus }} = useProcess();
+    const { modalStatus } = useSelector(state => state.process);
     return(
         <div className={styles.container}>
             <div className={styles.activeDiagram}><span>مشخصات</span><span>فرایند</span></div>

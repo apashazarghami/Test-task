@@ -3,10 +3,10 @@ import Header from "../header/Header";
 import Main from "../main/Main";
 import Sidebar from '../sidebar/Sidebar';
 import Modal from '../modals/Modal';
-import { useProcess } from '../../context/ProcessProvider';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
-    const { state: { modalStatus }} =  useProcess();
+    const { modalStatus } =  useSelector(state => state.process);
     return(
         <>
             <div className={`${modalStatus !== 'hidden' && styles.lowOpacity}`}>

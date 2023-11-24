@@ -1,13 +1,14 @@
-import { useProcess } from '../../../context/ProcessProvider';
+import { useDispatch } from 'react-redux';
 import styles from './ModalHeader.module.css';
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import { goToHome } from '../../../redux/process/processActions';
 
 const ModalHeader = () => {
-    const { dispatch } = useProcess()
+    const dispatch = useDispatch();
     return(
         <div className={styles.container}>
             <div className={styles.content}>
-                <IoIosCloseCircleOutline className={styles.closeIcon} onClick={() => dispatch({ type: 'GO_TO_HOME'})} />
+                <IoIosCloseCircleOutline className={styles.closeIcon} onClick={() => dispatch(goToHome())} />
                 <p className={styles.text}>اضافه کردن فرایند</p>
             </div>
             <div>

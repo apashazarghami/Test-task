@@ -3,11 +3,12 @@ import { BsDiagram3 } from "react-icons/bs";
 import { TbLineDotted } from "react-icons/tb";
 import ITIconChart from './ITIconChart';
 import ITContentChart from './ITContentChart';
-import { useProcess } from '../../../context/ProcessProvider';
+import { useDispatch } from 'react-redux';
+import { addOption } from '../../../redux/process/processActions';
 
 const AssistanceContentChart = ({ organizationStatus, setOrganizationStatus }) => {
     const { isIT } = organizationStatus
-    const { dispatch } = useProcess();
+    const dispatch = useDispatch();
     return(
         <>
             <div className={styles.contentContainer}>
@@ -16,18 +17,18 @@ const AssistanceContentChart = ({ organizationStatus, setOrganizationStatus }) =
                 <div>
                     { isIT && <ITIconChart /> }   
                 </div>
-                <div className={styles.nodeText} onClick={() => dispatch({ type: 'ADD_OPTION', payload: {id: 'A.01.01', department: 'معاونت فناوری اطلاعات'}})}>معاونت فناوری اطلاعات</div>
+                <div className={styles.nodeText} onClick={() => dispatch(addOption({ id: 'A.01.01', department: 'معاونت فناوری اطلاعات' }))}>معاونت فناوری اطلاعات</div>
             </div>
             { isIT && <ITContentChart /> }
             <div className={`${styles.contentContainer} ${isIT && styles.displayIT}`}>
                 <TbLineDotted className={styles.dottedLine} />
                 <BsDiagram3 className={styles.diagram} />
-                <div className={styles.nodeText} onClick={() => dispatch({ type: 'ADD_OPTION', payload: {id: 'A.01.05', department: 'معاونت آموزش'}})}>معاونت آموزش</div>
+                <div className={styles.nodeText} onClick={() => dispatch(addOption({ id: 'A.01.05', department: 'معاونت آموزش' }))}>معاونت آموزش</div>
             </div>
             <div className={`${styles.contentContainer}`}>
                 <TbLineDotted className={styles.dottedLine} />
                 <BsDiagram3 className={styles.diagram} />
-                <div className={styles.nodeText} onClick={() => dispatch({ type: 'ADD_OPTION', payload: {id: 'A.01.06', department: 'معاونت پژوهش'}})}>معاونت پژوهش</div>
+                <div className={styles.nodeText} onClick={() => dispatch(addOption({ id: 'A.01.06', department: 'معاونت پژوهش' }))}>معاونت پژوهش</div>
             </div>
         </>
     )

@@ -3,10 +3,10 @@ import ModalHeader from "./header/ModalHeader";
 import StepDiagram from './diagram/StepsDiagram';
 import FormStepOne from './form/FormStepOne';
 import FormStepTwo from './form/FormStepTwo';
-import { useProcess } from '../../context/ProcessProvider';
+import { useSelector } from 'react-redux';
 
 const Modal = () => {
-    const { state: { modalStatus } } = useProcess();
+    const { modalStatus } = useSelector(state => state.process);
     return(
         <div className={`${styles.container} ${modalStatus === 'stepOne' || modalStatus === 'stepTwo' ? styles.displayModal : styles.hiddenModal}`}>
             <ModalHeader />

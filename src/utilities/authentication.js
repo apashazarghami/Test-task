@@ -1,6 +1,7 @@
 import toast from "react-hot-toast";
+import { goToStepTwo } from "../redux/process/processActions";
 
-const notify = (content, status) => status === 'success' ? toast.success(content) : toast.error(content);
+export const notify = (content, status) => status === 'success' ? toast.success(content) : toast.error(content);
 
 const authentication = ({ information, processOwner, processViewer, type, dispatch }) => {
     const { processTitle, processIdentifier, processDescription } =  information;
@@ -20,7 +21,7 @@ const authentication = ({ information, processOwner, processViewer, type, dispat
     if(!processOwner.length) return notify('وارد کردن مالک  فرآیند الزامی می باشد')
     if(!processViewer.length) return notify('وارد کردن ناظر فرآیند الزامی می باشد')
     notify('اطلاعات با موفقیت ثبت شد', 'success');
-    dispatch({ type, payload: { processTitle, processIdentifier, processOwner, processViewer, processDescription } })
+    dispatch(goToStepTwo({ processTitle, processIdentifier, processOwner, processViewer, processDescription }))
 }
 
 export default authentication
