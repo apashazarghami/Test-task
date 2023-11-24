@@ -27,10 +27,7 @@ const processReducer = (state = INITIAL_STATE, { type, payload }) => {
                 processDescription
             }
         case 'GO_TO_HOME' :
-            return {
-                ...state,
-                modalStatus: 'hidden'
-            }
+            return INITIAL_STATE
         case "ADD_OPTION" :
             const repeatedOption = state.options.filter(item => item.id === payload.id)
             return {

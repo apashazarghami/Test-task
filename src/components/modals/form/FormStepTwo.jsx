@@ -10,19 +10,11 @@ const FormStepTwo = () => {
     const dispatch = useDispatch();
     const { options, processDescription, processIdentifier, processOwner, processTitle, processViewer } = useSelector(state => state.process)
     const sendInformation = () => {
-        const data = {
-            options,
-            processDescription,
-            processIdentifier,
-            processOwner,
-            processTitle,
-            processViewer,
-            createdAt: new Date().toISOString() 
-        }
-        
+        const data = { options, processDescription, processIdentifier, processOwner, processTitle, processViewer, createdAt: new Date().toISOString() }
         const sendData = async() => {
             notify(`اطلاعات فرایند ${processTitle} با شناسه ${processIdentifier} در تاریخ ${new Date(data.createdAt).toLocaleString('fa')} با موفقیت ثبت شد`, 'success')
             dispatch(goToHome())
+            console.log(data)
             await axios.post('', data);
         }
         sendData()

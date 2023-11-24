@@ -1,0 +1,16 @@
+.labelContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.icon {
+    font-size: 0.7rem;
+    margin-right: 5px;
+    color: #ff2f4e;
+}
+
+.label {
+    color: #0a1219;
+    font-weight: 900;
+}

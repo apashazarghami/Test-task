@@ -16,6 +16,11 @@
     height: 300px;
     border: 2px solid #e8e8e8;
     border-radius: 5px;
+    overflow-y: scroll;
+}
+
+.charts::-webkit-scrollbar {
+    display: none;
 }
 
 .doubleArrow {
@@ -50,4 +55,14 @@
 
 .button:hover {
     background: #10446b;
+}
+
+@media (max-width: 1000px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .doubleArrow {
+        transform: rotate(90deg);
+    }
 }
